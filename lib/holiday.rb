@@ -59,22 +59,21 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
+  holiday_output = nil
   holiday_hash.each do |season, data|
-    season_cap = season.to_s.capitalize
-    season_cap += ":"
-    season_cap
-    print season_cap
-    data.each do |holiday,supplies|
-      holiday.to_s
-      if holiday.include?(" ")
-          holiday.split
-          holiday.join(" ")
-      end
-        holiday.capitalize!
+    # for each season in the holiday_hash put the name of the season capitalized along with : (e.g. Winter:)
+    puts "#{season.capitalize}:"
+    data.each do |holiday, supplies|
+      #for each holiday in the data set, change it to an string value and then split it up with a space inbetween
+      #run the .map method to capitalize each value in supplies array
+      #join the supplies array so that it is now one string value with a comman and space inbetween the words
+      #puts the modified holiday keys along with their holiday data
+      puts"  #{holiday.to_s.split('_').map {|x| x.capitalize }.join(' ') }: #{supplies.join(", ")}"
     end
-    puts "   #{holiday}: #{supplies.join(" ")}"
   end
 end
+
+#
 
 
 def all_holidays_with_bbq(holiday_hash)
@@ -90,3 +89,23 @@ def all_holidays_with_bbq(holiday_hash)
   end
   bbq_holiday
 end
+
+#OLD CODE ATTEMPTS
+#def all_supplies_in_holidays(holiday_hash)
+
+#  holiday_hash.each do |season, data|
+#    season_cap = season.to_s.capitalize
+#    season_cap += ":"
+#    season_cap
+#    print season_cap
+#    data.each do |holiday,supplies|
+      #holiday.to_s
+    #  if holiday.include?(" ")
+    #      holiday.split
+    #      holiday.join(" ")
+    #  end
+    #    holiday.capitalize!
+    #end
+  #  puts "   #{holiday}: #{supplies.join(" ")}"
+  #end
+#end
